@@ -13,9 +13,24 @@ void setup() {
     Serial.println(WiFi.localIP());
 
     server.begin();
-    
+
 }
 
 void loop() {
+    WiFiClient client = server.avalible(); //poslusaj za cliente
+
+    if(client) {
+        String currentLine = "";
+        while(client.connected()) {
+            if(client.avalable()) {
+                char a = client.read();
+                Serial.write(c);
+                if(c == "\n") {
+                    
+                }
+
+            }
+        }
+    }
 
 }
