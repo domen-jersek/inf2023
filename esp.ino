@@ -26,7 +26,19 @@ void loop() {
                 char a = client.read();
                 Serial.write(c);
                 if(c == "\n") {
-                    
+
+                    if(currentLine.length() == 0) {
+                        client.println("HTTP/1.1 200 OK");
+                        client.println("Content-type:text/html");
+                        client.println();
+
+                        client.print("<a href=\"/H\">ON</a>");
+                        client.print("<a href=\"/L\">OFF</a>");
+
+                        client.println();
+                        break;
+                    }
+
                 }
 
             }
