@@ -6,9 +6,10 @@ const char* password = "geslo omrezja";
 WiFiServer server(80);
 
 void setup() {
-
+    Serial.begin(115200);
+    pinMode(2, OUTPUT);
 }
 
 void loop() {
-    
+
 }
