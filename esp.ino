@@ -8,6 +8,12 @@ WiFiServer server(80);
 void setup() {
     Serial.begin(115200);
     pinMode(2, OUTPUT);
+
+    WiFi.begin(ssid, password);
+    Serial.println(WiFi.localIP());
+
+    server.begin();
+    
 }
 
 void loop() {
