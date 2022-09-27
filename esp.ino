@@ -37,8 +37,14 @@ void loop() {
 
                         client.println();
                         break;
+
+                    } else {
+                        currentLine = ""; //izbrisi linijo
                     }
 
+
+                } else if(c != "\r") { //sprejmi vnos le ce ni kocija
+                    currentLine += a;
                 }
 
             }
