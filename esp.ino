@@ -47,8 +47,17 @@ void loop() {
                     currentLine += a;
                 }
 
+                if (currentLine.endsWith("GET /H")) {
+                    digitalWrite(5, HIGH);
+                }
+
+                if (currentLine.endsWith("GET /L")) {
+                    digitalWrite(5, LOW);
+                }
+
             }
         }
+        client.stop(); //zapri povezavo
     }
 
 }
