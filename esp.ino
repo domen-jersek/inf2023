@@ -16,14 +16,16 @@ void setup() {
 
 }
 
+int value = 0;
+
 void loop() {
-    WiFiClient client = server.avalible(); //poslusaj za cliente
+    WiFiClient client = server.available(); //poslusaj za cliente
 
     if(client) {
         String currentLine = "";
         while(client.connected()) {
-            if(client.avalable()) {
-                char a = client.read();
+            if(client.available()) {
+                char c = client.read();
                 Serial.write(c);
                 if(c == "\n") {
 
@@ -44,7 +46,7 @@ void loop() {
 
 
                 } else if(c != "\r") { //sprejmi vnos le ce ni kocija
-                    currentLine += a;
+                    currentLine += c;
                 }
 
                 if (currentLine.endsWith("GET /H")) {
