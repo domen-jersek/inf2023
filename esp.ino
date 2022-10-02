@@ -3,11 +3,15 @@
 const char* ssid = "ime omrezja";
 const char* password = "geslo omrezja";
 
+const int button = 4; 
+
 WiFiServer server(80);
 
 void setup() {
     Serial.begin(115200);
     pinMode(2, OUTPUT);
+
+    pinMode(button, INPUT);
 
     WiFi.begin(ssid, password);
     Serial.println(WiFi.localIP());
@@ -60,6 +64,13 @@ void loop() {
             }
         }
         client.stop(); //zapri povezavo
+    }
+    buttonState = digitalRead(button);
+    if (buttonState == HIGH) {
+        digitalWrite(5, HIGH);
+    }
+    if (buttonState == LOW) {
+        digitalWrite(5, LOW);
     }
 
 }
